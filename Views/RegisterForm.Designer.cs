@@ -36,8 +36,10 @@
             register_password = new TextBox();
             register_loginBtn = new Label();
             register_showPassword = new CheckBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)register_closeBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -132,11 +134,23 @@
             register_showPassword.UseVisualStyleBackColor = true;
             register_showPassword.CheckedChanged += register_showPassword_CheckedChanged;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = Properties.Resources.Logo;
+            pictureBox2.Location = new Point(483, 229);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(262, 268);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 15;
+            pictureBox2.TabStop = false;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 600);
+            Controls.Add(pictureBox2);
             Controls.Add(register_showPassword);
             Controls.Add(register_loginBtn);
             Controls.Add(register_password);
@@ -151,6 +165,7 @@
             Text = "RegisterForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)register_closeBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -165,5 +180,6 @@
         private TextBox register_password;
         private Label register_loginBtn;
         private CheckBox register_showPassword;
+        private PictureBox pictureBox2;
     }
 }
