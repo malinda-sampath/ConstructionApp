@@ -1,4 +1,5 @@
 ﻿using ConstructionApp.Models;
+using ConstructionApp.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,6 +56,7 @@ namespace ConstructionApp.Views
                     return;
                 }
                 //checking username exists.
+                dbManager.OpenConnection();
                 string checkquery = "SELECT COUNT(*) FROM [dbo].[users] WHERE username = @username";
                 using (SqlCommand cmd = new SqlCommand(checkquery, dbManager.GetConnection()))
                 {
@@ -63,7 +65,7 @@ namespace ConstructionApp.Views
                     if (usernameCount > 0)
                     {
                         MessageBox.Show("Username already exists. Please choose a different one.", "Username Taken", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return; 
+                        return;
                     }
                 }
 
@@ -72,13 +74,13 @@ namespace ConstructionApp.Views
                 username = register_username.Text.Trim();
                 password = register_password.Text;
                 dateRegistered = DateTime.Today;
-                
 
-                string hashedPassword=BCrypt.Net.BCrypt.HashPassword(password,13);
+
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, 13);
 
                 dbManager.OpenConnection();
 
-                string insertquery = "INSERT INTO [dbo].[users] ([name], [username], [password], [date_registerd]) " +
+                string insertquery = "INSERT INTO [dbo].[users] ([name], [username], [password], [date_registered]) " +
                                "VALUES (@name, @username, @password, @dateRegistered)";
 
                 // Create the SqlCommand object
@@ -115,6 +117,11 @@ namespace ConstructionApp.Views
             {
                 dbManager.CloseConnection();
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
