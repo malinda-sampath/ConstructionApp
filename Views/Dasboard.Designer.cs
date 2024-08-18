@@ -1,6 +1,6 @@
 ﻿namespace ConstructionApp.Views
 {
-    partial class Dashboard
+    partial class Dasboard
     {
         /// <summary>
         /// Required designer variable.

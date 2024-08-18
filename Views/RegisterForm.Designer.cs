@@ -47,9 +47,8 @@
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = Properties.Resources.RegisterForm;
             pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1125, 750);
+            pictureBox1.Size = new Size(900, 600);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -63,23 +62,20 @@
             button1.FlatAppearance.MouseOverBackColor = Color.FromArgb(28, 89, 171);
             button1.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(134, 615);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Location = new Point(107, 492);
             button1.Name = "button1";
-            button1.Size = new Size(194, 60);
+            button1.Size = new Size(155, 48);
             button1.TabIndex = 10;
             button1.Text = "REGISTER";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // register_name
             // 
             register_name.BorderStyle = BorderStyle.None;
             register_name.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_name.Location = new Point(145, 312);
-            register_name.Margin = new Padding(4, 4, 4, 4);
+            register_name.Location = new Point(116, 250);
             register_name.Name = "register_name";
-            register_name.Size = new Size(292, 27);
+            register_name.Size = new Size(234, 27);
             register_name.TabIndex = 7;
             // 
             // register_closeBtn
@@ -87,10 +83,9 @@
             register_closeBtn.BackColor = Color.FromArgb(0, 74, 173);
             register_closeBtn.Cursor = Cursors.Hand;
             register_closeBtn.Image = Properties.Resources.CloseIcon;
-            register_closeBtn.Location = new Point(1074, 15);
-            register_closeBtn.Margin = new Padding(4, 4, 4, 4);
+            register_closeBtn.Location = new Point(859, 12);
             register_closeBtn.Name = "register_closeBtn";
-            register_closeBtn.Size = new Size(36, 39);
+            register_closeBtn.Size = new Size(29, 31);
             register_closeBtn.SizeMode = PictureBoxSizeMode.Zoom;
             register_closeBtn.TabIndex = 6;
             register_closeBtn.TabStop = false;
@@ -100,21 +95,19 @@
             // 
             register_username.BorderStyle = BorderStyle.None;
             register_username.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_username.Location = new Point(145, 419);
-            register_username.Margin = new Padding(4, 4, 4, 4);
+            register_username.Location = new Point(116, 335);
             register_username.Name = "register_username";
-            register_username.Size = new Size(292, 27);
+            register_username.Size = new Size(234, 27);
             register_username.TabIndex = 11;
             // 
             // register_password
             // 
             register_password.BorderStyle = BorderStyle.None;
             register_password.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            register_password.Location = new Point(145, 529);
-            register_password.Margin = new Padding(4, 4, 4, 4);
+            register_password.Location = new Point(116, 423);
             register_password.Name = "register_password";
             register_password.PasswordChar = '*';
-            register_password.Size = new Size(250, 27);
+            register_password.Size = new Size(200, 27);
             register_password.TabIndex = 12;
             // 
             // register_loginBtn
@@ -124,8 +117,7 @@
             register_loginBtn.Cursor = Cursors.Hand;
             register_loginBtn.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             register_loginBtn.ForeColor = SystemColors.ControlText;
-            register_loginBtn.Location = new Point(329, 225);
-            register_loginBtn.Margin = new Padding(4, 0, 4, 0);
+            register_loginBtn.Location = new Point(263, 180);
             register_loginBtn.Name = "register_loginBtn";
             register_loginBtn.Size = new Size(46, 20);
             register_loginBtn.TabIndex = 13;
@@ -135,8 +127,7 @@
             // register_showPassword
             // 
             register_showPassword.AutoSize = true;
-            register_showPassword.Location = new Point(410, 540);
-            register_showPassword.Margin = new Padding(4, 4, 4, 4);
+            register_showPassword.Location = new Point(328, 432);
             register_showPassword.Name = "register_showPassword";
             register_showPassword.Size = new Size(18, 17);
             register_showPassword.TabIndex = 14;
@@ -147,19 +138,18 @@
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = Properties.Resources.Logo;
-            pictureBox2.Location = new Point(604, 286);
-            pictureBox2.Margin = new Padding(4, 4, 4, 4);
+            pictureBox2.Location = new Point(483, 229);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(328, 335);
+            pictureBox2.Size = new Size(262, 268);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 15;
             pictureBox2.TabStop = false;
             // 
             // RegisterForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1125, 750);
+            ClientSize = new Size(900, 600);
             Controls.Add(pictureBox2);
             Controls.Add(register_showPassword);
             Controls.Add(register_loginBtn);
@@ -170,7 +160,6 @@
             Controls.Add(register_closeBtn);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 4, 4, 4);
             Name = "RegisterForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegisterForm";

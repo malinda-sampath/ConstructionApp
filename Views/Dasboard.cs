@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ConstructionApp.Views
 {
-    public partial class Dashboard : Form
+    public partial class Dasboard : Form
     {
-        public Dashboard()
+        public Dasboard()
         {
             InitializeComponent();
         }
