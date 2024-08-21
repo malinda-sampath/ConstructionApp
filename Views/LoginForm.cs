@@ -66,8 +66,8 @@ namespace ConstructionApp.Views
                             if (BCrypt.Net.BCrypt.Verify(password, user.HashedPassword))
                             {
                                 //MessageBox.Show("Welcome "+user.Name,"login Success",MessageBoxButtons.OK,MessageBoxIcon.None);
-                                Dashboard frm = new Dashboard();
-                                frm.Show();
+                                MainForm mainForm = new MainForm();
+                                mainForm.Show();
                                 this.Hide();
                             }
                             else
