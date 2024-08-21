@@ -2,14 +2,14 @@
 using System.Data.SqlClient;
 
 
-namespace ConstructionApp
+namespace ConstructionApp.Services
 {
     internal class DbManager
     {
         private static DbManager _instance = null;
         private static readonly object _lock = new object();
         private SqlConnection _connection;
-        private static string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\chath\\Documents\\Database.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=True";
+        private static string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\chath\\source\\repos\\ConstructionApp\\Repositories\\Database.mdf;Integrated Security=True";
 
         // Private constructor to prevent instantiation from outside
         private DbManager()
