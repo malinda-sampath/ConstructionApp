@@ -50,15 +50,17 @@
             panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(527, 65);
+            panel1.Size = new Size(659, 81);
             panel1.TabIndex = 0;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Stencil", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(172, 14);
+            label2.Location = new Point(215, 18);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(165, 40);
             label2.TabIndex = 2;
@@ -68,7 +70,8 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 92);
+            label1.Location = new Point(15, 115);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(196, 28);
             label1.TabIndex = 1;
@@ -78,7 +81,8 @@
             // 
             lorryLicense.AutoSize = true;
             lorryLicense.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lorryLicense.Location = new Point(300, 92);
+            lorryLicense.Location = new Point(375, 115);
+            lorryLicense.Margin = new Padding(4, 0, 4, 0);
             lorryLicense.Name = "lorryLicense";
             lorryLicense.Size = new Size(196, 28);
             lorryLicense.TabIndex = 2;
@@ -88,7 +92,8 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(12, 147);
+            label4.Location = new Point(15, 184);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(216, 28);
             label4.TabIndex = 3;
@@ -98,7 +103,8 @@
             // 
             lorryInsurance.AutoSize = true;
             lorryInsurance.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lorryInsurance.Location = new Point(300, 147);
+            lorryInsurance.Location = new Point(375, 184);
+            lorryInsurance.Margin = new Padding(4, 0, 4, 0);
             lorryInsurance.Name = "lorryInsurance";
             lorryInsurance.Size = new Size(216, 28);
             lorryInsurance.TabIndex = 4;
@@ -108,7 +114,8 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(130, 239);
+            label6.Location = new Point(162, 299);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(253, 31);
             label6.TabIndex = 5;
@@ -119,7 +126,8 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = SystemColors.ScrollBar;
-            label7.Location = new Point(19, 195);
+            label7.Location = new Point(24, 244);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(492, 28);
             label7.TabIndex = 6;
@@ -129,7 +137,8 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(12, 296);
+            label8.Location = new Point(15, 370);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(240, 28);
             label8.TabIndex = 7;
@@ -139,7 +148,8 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(12, 375);
+            label9.Location = new Point(15, 469);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(260, 28);
             label9.TabIndex = 8;
@@ -147,16 +157,18 @@
             // 
             // lorryNewLicense
             // 
-            lorryNewLicense.Location = new Point(19, 327);
+            lorryNewLicense.Location = new Point(24, 409);
+            lorryNewLicense.Margin = new Padding(4, 4, 4, 4);
             lorryNewLicense.Name = "lorryNewLicense";
-            lorryNewLicense.Size = new Size(318, 27);
+            lorryNewLicense.Size = new Size(396, 31);
             lorryNewLicense.TabIndex = 9;
             // 
             // lorryNewInsurance
             // 
-            lorryNewInsurance.Location = new Point(19, 407);
+            lorryNewInsurance.Location = new Point(24, 509);
+            lorryNewInsurance.Margin = new Padding(4, 4, 4, 4);
             lorryNewInsurance.Name = "lorryNewInsurance";
-            lorryNewInsurance.Size = new Size(318, 27);
+            lorryNewInsurance.Size = new Size(396, 31);
             lorryNewInsurance.TabIndex = 10;
             // 
             // lorryUpdateBtn
@@ -164,18 +176,20 @@
             lorryUpdateBtn.BackColor = SystemColors.ActiveCaption;
             lorryUpdateBtn.Cursor = Cursors.Hand;
             lorryUpdateBtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lorryUpdateBtn.Location = new Point(356, 601);
+            lorryUpdateBtn.Location = new Point(445, 751);
+            lorryUpdateBtn.Margin = new Padding(4, 4, 4, 4);
             lorryUpdateBtn.Name = "lorryUpdateBtn";
-            lorryUpdateBtn.Size = new Size(140, 55);
+            lorryUpdateBtn.Size = new Size(175, 69);
             lorryUpdateBtn.TabIndex = 11;
             lorryUpdateBtn.Text = "Update";
             lorryUpdateBtn.UseVisualStyleBackColor = false;
+            lorryUpdateBtn.Click += lorryUpdateBtn_Click;
             // 
             // Lorry
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(527, 688);
+            ClientSize = new Size(659, 860);
             Controls.Add(lorryUpdateBtn);
             Controls.Add(lorryNewInsurance);
             Controls.Add(lorryNewLicense);
@@ -188,6 +202,7 @@
             Controls.Add(lorryLicense);
             Controls.Add(label1);
             Controls.Add(panel1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "Lorry";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LB - 7979";

@@ -87,28 +87,26 @@ namespace ConstructionApp.Views.Popups
 
         private void cabUpdateBtn_Click(object sender, EventArgs e)
         {
-
             DbManager dbManager = DbManager.Instance;
             try
             {
-               
                 dbManager.OpenConnection();
 
                 DateTime insRenewDate = cabNewInsurance.Value.Date;
                 DateTime licRenewDate = cabNewLicense.Value.Date;
 
-               
-
-                string sql = "UPDATE [dbo].[vehical] SET license_renew_date = '@licRenewDate', insurance_renew_date = '@insRenewDate' WHERE regNo = @regNo;";
+                // Corrected SQL query
+                string sql = "UPDATE [dbo].[vehical] SET license_renew_date = @licRenewDate, insurance_renew_date = @insRenewDate WHERE regNo = @regNo";
                 using (SqlCommand cmd = new SqlCommand(sql, dbManager.GetConnection()))
                 {
-                    cmd.Parameters.AddWithValue("@insRenewDate", insRenewDate.Date);
-                    cmd.Parameters.AddWithValue("@licRenewDate", licRenewDate.Date);
+                    cmd.Parameters.AddWithValue("@insRenewDate", insRenewDate);
+                    cmd.Parameters.AddWithValue("@licRenewDate", licRenewDate);
                     cmd.Parameters.AddWithValue("@regNo", cab.RegNo);
 
-                    if (cmd.ExecuteNonQuery() >= 0)
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Updated", "Succes", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("Updated", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.None);
                     }
                     else
                     {
@@ -116,22 +114,24 @@ namespace ConstructionApp.Views.Popups
                         return;
                     }
                 }
-                cabInsurance.Text = insRenewDate.Date.ToString();
-                cabLicense.Text = licRenewDate.Date.ToString();
-                cab.InsuranceRenewDate = insRenewDate.Date;
-                cab.LicRenewDate=licRenewDate.Date;
 
+                // Correct text field assignment
+                cabInsurance.Text = insRenewDate.ToString("d");
+                cabLicense.Text = licRenewDate.ToString("d");
 
+                // Update the vehicle object
+                cab.InsuranceRenewDate = insRenewDate;
+                cab.LicRenewDate = licRenewDate;
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show("An error occurred: " + ex.Message, "update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred: " + ex.Message, "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
                 dbManager.CloseConnection();
             }
         }
+
     }
 }
