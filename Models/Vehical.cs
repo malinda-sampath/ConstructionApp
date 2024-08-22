@@ -55,7 +55,7 @@ namespace ConstructionApp.Models
             }
         }
 
-        public string Model1
+        public string Model
         {
             get => model;
             set => model = value;

@@ -8,11 +8,11 @@ VALUES
 
 INSERT INTO [dbo].[vehical] (regNo, number_plate, fuel_type, license_renew_date, insurance_renew_date, model)
 VALUES 
-(1, 'ABC-1234', 'Petrol', '2024-12-31', '2024-11-30', 'Toyota Corolla'),
-(2, 'XYZ-5678', 'Diesel', '2025-03-15', '2024-12-31', 'Ford Ranger'),
-(3, 'LMN-9101', 'CNG', '2024-10-20', '2024-09-30', 'Honda Civic'),
-(4, 'PQR-1122', 'Petrol', '2024-07-25', '2024-06-30', 'Chevrolet Malibu'),
-(5, 'STU-3344', 'Diesel', '2025-01-10', '2024-11-15', 'Nissan Frontier');
+(1234, 'ABC-1234', 'Petrol', '2024-12-31', '2024-11-30', 'Toyota Corolla'),
+(5678, 'XYZ-5678', 'Diesel', '2025-03-15', '2024-12-31', 'Ford Ranger'),
+(9101, 'LMN-9101', 'CNG', '2024-10-20', '2024-09-30', 'Honda Civic'),
+(1122, 'PQR-1122', 'Petrol', '2024-07-25', '2024-06-30', 'Chevrolet Malibu'),
+(3344, 'STU-3344', 'Diesel', '2025-01-10', '2024-11-15', 'Nissan Frontier');
 
 
 INSERT INTO [dbo].[daily_vehical_records] (Id, date, regNo, last_filling, filling_millage, start_millage, route)
