@@ -2,19 +2,42 @@
 
 namespace ConstructionApp.Models
 {
-    internal abstract class Vehical
+    internal class Vehical
     {
         private string regNo;
+        private string numberPlate;
         private string fuelType;
         private string model;
-        private DateOnly licenseRenewDate;
+        private DateTime licenseRenewDate;
+        private DateTime insuranceRenewDate;
         private decimal fuelUsage;
 
         public string RegNo
         {
             get => regNo;
-            set => regNo = value;
+            set
+            {
+                // Assuming numberPlate is already set and has at least one '-' character
+                if (numberPlate != null)
+                {
+                    var parts = numberPlate.Split('-');
+                    if (parts.Length > 1)
+                    {
+                        regNo = parts[1]; // Setting regNo to the part after '-'
+                    }
+                    else
+                    {
+                        // Handle cases where numberPlate does not contain '-' as needed
+                        regNo = value;
+                    }
+                }
+                else
+                {
+                    regNo = value;
+                }
+            }
         }
+
 
         public string FuelType
         {
@@ -38,7 +61,7 @@ namespace ConstructionApp.Models
             set => model = value;
         }
 
-        public DateOnly LicRenewDate
+        public DateTime LicRenewDate
         {
             get => licenseRenewDate;
             set => licenseRenewDate = value;
@@ -48,6 +71,24 @@ namespace ConstructionApp.Models
         {
             get => fuelUsage;
             set => fuelUsage = value;
+        }
+        public DateTime InsuranceRenewDate { get => insuranceRenewDate; set => insuranceRenewDate = value; }
+        public string NumberPlate
+        {
+            get => numberPlate;
+            set
+            {
+                numberPlate = value;
+                // Optionally update regNo if numberPlate changes
+                if (numberPlate != null)
+                {
+                    var parts = numberPlate.Split('-');
+                    if (parts.Length > 1)
+                    {
+                        regNo = parts[1];
+                    }
+                }
+            }
         }
     }
 }
