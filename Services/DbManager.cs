@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Configuration;
+
+
+
 
 
 namespace ConstructionApp.Services
@@ -9,7 +13,7 @@ namespace ConstructionApp.Services
         private static DbManager _instance = null;
         private static readonly object _lock = new object();
         private SqlConnection _connection;
-        private static string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Shakila Kamalasena\\Desktop\\ConstructionApp\\Repositories\\Database.mdf;Integrated Security=True";
+        private static string connectionString = ConfigurationManager.ConnectionStrings["ConstructionAppConnectionString"].ConnectionString;
 
         // Private constructor to prevent instantiation from outside
         private DbManager()
