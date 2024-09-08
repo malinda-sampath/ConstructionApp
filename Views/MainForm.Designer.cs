@@ -38,8 +38,8 @@
             dashboardBtn = new Button();
             panel1 = new Panel();
             dashboard1 = new Dashboard();
+            employeeDashboard1 = new EmployeeDashboard();
             sites1 = new Sites();
-            employee1 = new Employee();
             office1 = new Office();
             vehicleForm1 = new VehicleForm();
             leftSidePanel.SuspendLayout();
@@ -161,8 +161,8 @@
             // panel1
             // 
             panel1.Controls.Add(dashboard1);
+            panel1.Controls.Add(employeeDashboard1);
             panel1.Controls.Add(sites1);
-            panel1.Controls.Add(employee1);
             panel1.Controls.Add(office1);
             panel1.Controls.Add(vehicleForm1);
             panel1.Dock = DockStyle.Fill;
@@ -176,7 +176,14 @@
             dashboard1.Location = new Point(0, 0);
             dashboard1.Name = "dashboard1";
             dashboard1.Size = new Size(1248, 853);
-            dashboard1.TabIndex = 4;
+            dashboard1.TabIndex = 6;
+            // 
+            // employeeDashboard1
+            // 
+            employeeDashboard1.Location = new Point(0, 0);
+            employeeDashboard1.Name = "employeeDashboard1";
+            employeeDashboard1.Size = new Size(1248, 853);
+            employeeDashboard1.TabIndex = 5;
             // 
             // sites1
             // 
@@ -184,13 +191,6 @@
             sites1.Name = "sites1";
             sites1.Size = new Size(1248, 853);
             sites1.TabIndex = 3;
-            // 
-            // employee1
-            // 
-            employee1.Location = new Point(0, 0);
-            employee1.Name = "employee1";
-            employee1.Size = new Size(1248, 853);
-            employee1.TabIndex = 2;
             // 
             // office1
             // 
@@ -201,6 +201,7 @@
             // 
             // vehicleForm1
             // 
+            vehicleForm1.BackColor = SystemColors.ControlLight;
             vehicleForm1.Location = new Point(0, 0);
             vehicleForm1.Name = "vehicleForm1";
             vehicleForm1.Size = new Size(1248, 853);
@@ -216,6 +217,7 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ABC Constructions (pvt) ltd.";
+            Load += MainForm_Load;
             leftSidePanel.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -233,9 +235,9 @@
         private Button logoutBtn;
         private Panel panel1;
         private VehicleForm vehicleForm1;
-        private Dashboard dashboard1;
         private Sites sites1;
-        private Employee employee1;
         private Office office1;
+        private EmployeeDashboard employeeDashboard1;
+        private Dashboard dashboard1;
     }
 }

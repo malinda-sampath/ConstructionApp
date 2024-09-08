@@ -33,7 +33,7 @@ namespace ConstructionApp.Views
         {
             dashboard1.Visible = true;
             sites1.Visible = false;
-            employee1.Visible = false;
+            employeeDashboard1.Visible = false;
             office1.Visible = false;
             vehicleForm1.Visible = false;
         }
@@ -42,7 +42,7 @@ namespace ConstructionApp.Views
         {
             dashboard1.Visible = false;
             sites1.Visible = false;
-            employee1.Visible = false;
+            employeeDashboard1.Visible = false;
             office1.Visible = false;
             vehicleForm1.Visible = true;
         }
@@ -51,7 +51,7 @@ namespace ConstructionApp.Views
         {
             dashboard1.Visible = false;
             sites1.Visible = true;
-            employee1.Visible = false;
+            employeeDashboard1.Visible = false;
             office1.Visible = false;
             vehicleForm1.Visible = false;
         }
@@ -60,7 +60,7 @@ namespace ConstructionApp.Views
         {
             dashboard1.Visible = false;
             sites1.Visible = false;
-            employee1.Visible = true;
+            employeeDashboard1.Visible = true;
             office1.Visible = false;
             vehicleForm1.Visible = false;
         }
@@ -69,9 +69,14 @@ namespace ConstructionApp.Views
         {
             dashboard1.Visible = false;
             sites1.Visible = false;
-            employee1.Visible = false;
+            employeeDashboard1.Visible = false;
             office1.Visible = true;
             vehicleForm1.Visible = false;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
