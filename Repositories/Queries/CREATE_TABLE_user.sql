@@ -1,4 +1,4 @@
-CREATE TABLE [dbo].[users]
+﻿CREATE TABLE [dbo].[users]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
     [name] VARCHAR(50) NOT NULL, 

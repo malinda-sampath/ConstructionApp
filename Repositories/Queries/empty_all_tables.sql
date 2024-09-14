@@ -3,7 +3,7 @@ EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL';
 
 -- Delete all data from tables
 DELETE FROM [dbo].[daily_vehical_records];
-DELETE FROM [dbo].[vehical];
+DELETE FROM [dbo].[vehicle];
 DELETE FROM [dbo].[fuel];
 
 -- Re-enable all foreign key constraints

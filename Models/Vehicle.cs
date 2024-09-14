@@ -2,7 +2,7 @@
 
 namespace ConstructionApp.Models
 {
-    internal class Vehical
+    public class Vehicle
     {
         private string regNo;
         private string numberPlate;
