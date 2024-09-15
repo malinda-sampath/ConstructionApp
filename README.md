@@ -1,3 +1,5 @@
+this is how database changing was done. you **no need** to follow all these steps.
+if there is an issue with a package, try installing this Nuget Package : ![image](https://github.com/user-attachments/assets/4c7c3de6-b927-41cc-9efe-ed39c07de274)
 
 
 # ConstructionApp
