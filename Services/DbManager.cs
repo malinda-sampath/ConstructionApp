@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Configuration;
-
+using MySql.Data.MySqlClient;
 
 
 
@@ -12,13 +12,14 @@ namespace ConstructionApp.Services
     {
         private static DbManager _instance = null;
         private static readonly object _lock = new object();
-        private SqlConnection _connection;
+        private MySqlConnection _connection;
         private static string connectionString = ConfigurationManager.ConnectionStrings["ConstructionAppConnectionString"].ConnectionString;
 
         // Private constructor to prevent instantiation from outside
         private DbManager()
         {
-            _connection = new SqlConnection(connectionString);
+            _connection = new MySqlConnection(connectionString);
+          
         }
 
         // Public static method to get the single instance of the class
@@ -76,7 +77,7 @@ namespace ConstructionApp.Services
         }
 
         // Method to get the SQL connection
-        public SqlConnection GetConnection()
+        public MySqlConnection GetConnection()
         {
             return _connection;
         }

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ConstructionApp.Views
 {
@@ -33,15 +34,16 @@ namespace ConstructionApp.Views
                 // Open the connection to the database
                 dbManager.OpenConnection();
 
-                string selectQuery = "SELECT * FROM [dbo].[vehicle] WHERE regNo = @regNo";
+                string selectQuery = "SELECT * FROM vehicle WHERE regNo = @regNo";
 
-                using (SqlCommand cmd = new SqlCommand(selectQuery, dbManager.GetConnection()))
+
+                using (MySqlCommand cmd = new MySqlCommand(selectQuery, dbManager.GetConnection()))
                 {
                     // Add the parameter for the vehicle registration number
                     cmd.Parameters.AddWithValue("@regNo", RegNo);
 
                     // Execute the query and read the data
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
 
                         // Check if any row is returned

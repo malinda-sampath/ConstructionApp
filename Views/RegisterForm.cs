@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ConstructionApp.Views
 {
@@ -58,7 +59,7 @@ namespace ConstructionApp.Views
                 //checking username exists.
                 dbManager.OpenConnection();
                 string checkquery = "SELECT COUNT(*) FROM [dbo].[users] WHERE username = @username";
-                using (SqlCommand cmd = new SqlCommand(checkquery, dbManager.GetConnection()))
+                using (MySqlCommand cmd = new MySqlCommand(checkquery, dbManager.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@username", register_username.Text.Trim());
                     int usernameCount = (int)cmd.ExecuteScalar();
@@ -84,7 +85,7 @@ namespace ConstructionApp.Views
                                "VALUES (@name, @username, @password, @dateRegistered)";
 
                 // Create the SqlCommand object
-                using (SqlCommand cmd = new SqlCommand(insertquery, dbManager.GetConnection()))
+                using (MySqlCommand cmd = new MySqlCommand(insertquery, dbManager.GetConnection()))
                 {
                     // Bind the parameters with actual values
                     cmd.Parameters.AddWithValue("@name", name);

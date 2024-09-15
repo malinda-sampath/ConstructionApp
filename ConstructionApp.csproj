@@ -10,8 +10,15 @@
 
   <ItemGroup>
     <PackageReference Include="BCrypt.Net" Version="0.1.0" />
+    <PackageReference Include="MySql.Data" Version="9.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector NET 9.0\MySql.Data.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

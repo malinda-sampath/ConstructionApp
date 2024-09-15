@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
 
 namespace ConstructionApp.Views
 {
@@ -51,11 +51,11 @@ namespace ConstructionApp.Views
 
                 string query = "SELECT name, username, password FROM users WHERE username = @username";
 
-                using (SqlCommand cmd = new SqlCommand(query, dbManager.GetConnection()))
+                using (MySqlCommand cmd = new MySqlCommand(query, dbManager.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@username", username);
 
-                    using (SqlDataReader sqlDataReader = cmd.ExecuteReader())
+                    using (MySqlDataReader sqlDataReader = cmd.ExecuteReader())
                     {
                         if (sqlDataReader.Read()) // Move to the first record
                         {
