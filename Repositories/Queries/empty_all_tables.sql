@@ -2,7 +2,7 @@
 EXEC sp_msforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL';
 
 -- Delete all data from tables
-DELETE FROM [dbo].[daily_vehical_records];
+DELETE FROM [dbo].[daily_vehicle_records];
 DELETE FROM [dbo].[vehicle];
 DELETE FROM [dbo].[fuel];
 

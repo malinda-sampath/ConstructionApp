@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[daily_vehical_records] (
+﻿CREATE TABLE [dbo].[daily_vehicle_records] (
     [Id]              INT             NOT NULL,
     [date]            DATE            NOT NULL,
     [regNo]           INT             NOT NULL,

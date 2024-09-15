@@ -79,7 +79,7 @@ namespace ConstructionApp.Views
         private void btn_lorry_Click(object sender, EventArgs e)
         {
 
-           RenewalPopup renewalPopup = new(vehicle: getVehicleFromDatabase(1234));
+           RenewalPopup renewalPopup = new(vehicle: getVehicleFromDatabase(7979));
             renewalPopup.Show();
            // Lorry lorry = new Lorry();
            // lorry.Show();
@@ -87,7 +87,7 @@ namespace ConstructionApp.Views
 
         private void btn_cab_Click(object sender, EventArgs e)
         {
-            RenewalPopup renewalPopup = new(vehicle: getVehicleFromDatabase(1234));
+            RenewalPopup renewalPopup = new(vehicle: getVehicleFromDatabase(1931));
             renewalPopup.Show();
             //Cab cb = new Cab();
             //cb.Show();
@@ -95,7 +95,7 @@ namespace ConstructionApp.Views
 
         private void btn_jeep_Click(object sender, EventArgs e)
         {
-            RenewalPopup renewalPopup = new(vehicle: getVehicleFromDatabase(1234));
+            RenewalPopup renewalPopup = new(vehicle: getVehicleFromDatabase(9995));
             renewalPopup.Show();
             //Jeep jeep = new Jeep();
             //jeep.Show();
@@ -103,7 +103,7 @@ namespace ConstructionApp.Views
 
         private void btn_bike_Click(object sender, EventArgs e)
         {
-            RenewalPopup renewalPopup = new(vehicle: getVehicleFromDatabase(1234));
+            RenewalPopup renewalPopup = new(vehicle: getVehicleFromDatabase(6751));
             renewalPopup.Show();
             //Bike bike = new Bike();
             //bike.Show();
