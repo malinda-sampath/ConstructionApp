@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
 
 namespace ConstructionApp.Views.Popups
 {
@@ -37,9 +37,9 @@ namespace ConstructionApp.Views.Popups
                 DateTime insRenewDate = vehicleNewInsurance.Value.Date;
                 DateTime licRenewDate = vehicleNewLicense.Value.Date;
 
-                // Corrected SQL query
-                string sql = "UPDATE [dbo].[vehicle] SET license_renew_date = @licRenewDate, insurance_renew_date = @insRenewDate WHERE regNo = @regNo";
-                using (SqlCommand cmd = new SqlCommand(sql, dbManager.GetConnection()))
+                // Corrected MySql query
+                string sql = "UPDATE vehicle SET license_renew_date = @licRenewDate, insurance_renew_date = @insRenewDate WHERE regNo = @regNo";
+                using (MySqlCommand cmd = new MySqlCommand(sql, dbManager.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@insRenewDate", insRenewDate);
                     cmd.Parameters.AddWithValue("@licRenewDate", licRenewDate);
@@ -88,15 +88,16 @@ namespace ConstructionApp.Views.Popups
                 // Open the connection to the database
                 dbManager.OpenConnection();
 
-                string selectQuery = "SELECT * FROM [dbo].[vehicle] WHERE regNo = @regNo";
+                string selectQuery = "SELECT * FROM vehicle WHERE regNo = @regNo";
 
-                using (SqlCommand cmd = new SqlCommand(selectQuery, dbManager.GetConnection()))
+
+                using (MySqlCommand cmd = new MySqlCommand(selectQuery, dbManager.GetConnection()))
                 {
                     // Add the parameter for the vehicle registration number
                     cmd.Parameters.AddWithValue("@regNo", vehicle.RegNo);
 
                     // Execute the query and read the data
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         // Check if any row is returned
                         if (reader.Read())
