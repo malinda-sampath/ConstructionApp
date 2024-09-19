@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ConstructionApp.Interfaces;
 
 namespace ConstructionApp.Views
 {
@@ -45,7 +46,7 @@ namespace ConstructionApp.Views
             string password;
             string username;
             DateTime dateRegistered;
-            DbManager dbManager = DbManager.Instance;
+            IDbManager dbManager = new DbManagerProxy();
 
             try
             {

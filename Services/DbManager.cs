@@ -2,13 +2,14 @@
 using System.Data.SqlClient;
 using System.Configuration;
 using MySql.Data.MySqlClient;
+using ConstructionApp.Interfaces;
 
 
-
+//NOTE: DO NOT USE DIRECTLY USE WITH `DbManagerProxy.cs
 
 namespace ConstructionApp.Services
 {
-    internal class DbManager
+    internal class DbManager:IDbManager
     {
         private static DbManager _instance = null;
         private static readonly object _lock = new object();
@@ -81,5 +82,7 @@ namespace ConstructionApp.Services
         {
             return _connection;
         }
+
+       
     }
 }

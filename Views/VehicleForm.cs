@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ConstructionApp.Interfaces;
 
 namespace ConstructionApp.Views
 {
@@ -28,7 +29,7 @@ namespace ConstructionApp.Views
         private Vehicle getVehicleFromDatabase(int RegNo)
         {
             Vehicle vehicle = null; 
-            DbManager dbManager = DbManager.Instance;
+            IDbManager dbManager = new DbManagerProxy();
             try
             {
                 // Open the connection to the database
