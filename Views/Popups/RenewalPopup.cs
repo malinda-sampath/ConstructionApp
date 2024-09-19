@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using ConstructionApp.Interfaces;
 
 namespace ConstructionApp.Views.Popups
 {
@@ -29,7 +30,7 @@ namespace ConstructionApp.Views.Popups
         private void vehicleUpdateBtn_Click(object sender, EventArgs e)
         {
 
-            DbManager dbManager = DbManager.Instance;
+            IDbManager dbManager = new DbManagerProxy();
             try
             {
                 dbManager.OpenConnection();
@@ -82,7 +83,7 @@ namespace ConstructionApp.Views.Popups
         }
         private void updateComponets()
         {
-            DbManager dbManager = DbManager.Instance;
+            IDbManager dbManager = DbManager.Instance;
             try
             {
                 // Open the connection to the database
