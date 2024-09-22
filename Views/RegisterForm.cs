@@ -12,12 +12,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using ConstructionApp.Interfaces;
+using static ConstructionApp.Services.RegistrationService;
 
 namespace ConstructionApp.Views
 {
     public partial class RegisterForm : Form
     {
-        User user = new User();//use if needed for dashbord
+
         public RegisterForm()
         {
             InitializeComponent();
@@ -45,8 +46,8 @@ namespace ConstructionApp.Views
             string name;
             string password;
             string username;
-            DateTime dateRegistered;
-            IDbManager dbManager = new DbManagerProxy();
+
+
 
             try
             {
@@ -57,68 +58,35 @@ namespace ConstructionApp.Views
                     MessageBox.Show("Please fill all input fields", "Empty Fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                //checking username exists.
-                dbManager.OpenConnection();
-                string checkquery = "SELECT COUNT(*) FROM [dbo].[users] WHERE username = @username";
-                using (MySqlCommand cmd = new MySqlCommand(checkquery, dbManager.GetConnection()))
+                else
                 {
-                    cmd.Parameters.AddWithValue("@username", register_username.Text.Trim());
-                    int usernameCount = (int)cmd.ExecuteScalar();
-                    if (usernameCount > 0)
+
+                    name = register_name.Text.Trim();
+                    username = register_username.Text.Trim();
+                    password = register_password.Text;
+
+                    if (RegisterUser(name, username, password))
                     {
-                        MessageBox.Show("Username already exists. Please choose a different one.", "Username Taken", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                }
-
-                //use these if needed for user model above
-                name = register_name.Text.Trim();
-                username = register_username.Text.Trim();
-                password = register_password.Text;
-                dateRegistered = DateTime.Today;
-
-
-                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, 13);
-
-                dbManager.OpenConnection();
-
-                string insertquery = "INSERT INTO [dbo].[users] ([name], [username], [password], [date_registered]) " +
-                               "VALUES (@name, @username, @password, @dateRegistered)";
-
-                // Create the SqlCommand object
-                using (MySqlCommand cmd = new MySqlCommand(insertquery, dbManager.GetConnection()))
-                {
-                    // Bind the parameters with actual values
-                    cmd.Parameters.AddWithValue("@name", name);
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@password", hashedPassword);
-                    cmd.Parameters.AddWithValue("@dateRegistered", dateRegistered);
-
-                    // Execute the command
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("User registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                      
                         LoginForm frm = new LoginForm();
                         frm.Show();
                         this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("User registration failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                            return;
                     }
+
                 }
+
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                dbManager.CloseConnection();
-            }
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
