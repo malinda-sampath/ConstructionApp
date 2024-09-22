@@ -1,6 +1,7 @@
 ﻿using ConstructionApp.Models;
 using ConstructionApp.Repositories;
 using ConstructionApp.Services;
+using static ConstructionApp.Services.AuthenticationService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +14,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using ConstructionApp.Interfaces;
+using Org.BouncyCastle.Asn1.Cms;
 
 namespace ConstructionApp.Views
 {
     public partial class LoginForm : Form
     {
-        User user=new User();
+        User user = new User();
 
         public LoginForm()
         {
@@ -35,7 +37,7 @@ namespace ConstructionApp.Views
         {
             string password;
             string username;
-            IDbManager dbManager = new DbManagerProxy();
+           
 
             try
             {
@@ -48,53 +50,28 @@ namespace ConstructionApp.Views
                 username = login_username.Text.Trim();
                 password = login_password.Text;
 
-                dbManager.OpenConnection();
-
-                string query = "SELECT name, username, password FROM users WHERE username = @username";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, dbManager.GetConnection()))
+                if (AuthenticateUserLogging(username, password))
                 {
-                    cmd.Parameters.AddWithValue("@username", username);
-
-                    using (MySqlDataReader sqlDataReader = cmd.ExecuteReader())
-                    {
-                        if (sqlDataReader.Read()) // Move to the first record
-                        {
-                            user.Name = sqlDataReader["name"].ToString();
-                            user.Username = sqlDataReader["username"].ToString();
-                            user.HashedPassword = sqlDataReader["password"].ToString();
-
-                            if (BCrypt.Net.BCrypt.Verify(password, user.HashedPassword))
-                            {
-                                //MessageBox.Show("Welcome "+user.Name,"login Success",MessageBoxButtons.OK,MessageBoxIcon.None);
-                                MainForm mainForm = new MainForm();
-                                mainForm.Show();
-                                this.Hide();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Invalid credentials", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                login_username.Clear();
-                                login_password.Clear();
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("User not found", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            login_username.Clear();
-                            login_password.Clear();
-                        }
-                    }
+                    //MessageBox.Show("Welcome "+user.Name,"login Success",MessageBoxButtons.OK,MessageBoxIcon.None);
+                    MainForm mainForm = new MainForm();
+                    mainForm.Show();
+                    this.Hide();
                 }
+                else
+                {
+                    login_username.Clear();
+                    login_password.Clear();
+                }
+
+
+
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                dbManager.CloseConnection();
-            }
+
         }
 
 
